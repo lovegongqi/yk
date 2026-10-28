@@ -396,11 +396,21 @@
         .tools-heading h2 { font-size: 19px; }
         .tools-count { width: 100%; margin-left: 15px; margin-top: -5px; font-size: 12px; }
         .grid { grid-template-columns: 1fr; gap: 12px; }
-        .card { min-height: 0; padding: 16px 18px 18px; }
-        .card-top { margin-bottom: 11px; }
+        .card {
+          display: grid;
+          grid-template-columns: 48px minmax(0, 1fr) 28px;
+          grid-template-rows: auto auto auto;
+          gap: 2px 12px;
+          min-height: 0;
+          padding: 12px 14px;
+        }
+        .card-top { display: contents; }
         .tile { width: 48px; height: 48px; }
-        .card h3 { font-size: 17px; }
-        .card p { margin-top: 6px; line-height: 1.6; }
+        .card-top .tile { grid-column: 1; grid-row: 1 / 4; }
+        .card-arrow { grid-column: 3; grid-row: 1 / 4; }
+        .category { grid-column: 2; margin: 0; align-self: end; }
+        .card h3 { grid-column: 2; align-self: center; font-size: 17px; }
+        .card p { grid-column: 2; margin: 0; align-self: start; line-height: 1.45; }
         footer { align-items: flex-start; flex-direction: column; gap: 12px; margin-top: 36px; }
         .footer-site { text-align: left; }
       }
